@@ -1,6 +1,22 @@
+html,body{
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background:url('../img/background.jpg');
+  background-size: cover;
+}
 div {
   text-align:center;
-  margin:3% auto;
+  margin: auto;
+}
+.movie{
+  margin: 3% auto;
+}
+.header{
+  text-align: center;
+  margin: auto;
+  font-size: 4em;
 }
 .top{
   margin-top: 10px;
@@ -8,44 +24,71 @@ div {
 .poster img{
   height: 500px;
   width: 333px;
+  border-radius: 5px;
 }
 .overview{
-  width: 70%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5%;
+  background-color: rgba(0,0,0,0.5);
+  width: 85%;
+  color: white;
+  border-radius: 5px;
+}
+.placeholder{
+  visibility: hidden;
+}
+.overview p {
+  padding: 15px 2.5%;
 }
 
 .navigation{
-  width:20%;
+  width:25%;
+  margin-bottom: 3%;
 }
-.arrow{
-  width: 0px;
-  height: 0px;
-  border: 50px solid transparent; 
-  border-top-color: #446CB3; 
-  margin: 0;
-  padding: 0;
+.animate{
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
 }
-.arrow:before{
-  content:'';
-  width: 0px;
-  height: 0px;
-  border: 30px solid transparent; 
-  border-top-color: white;
-  display: inline-block;
-  -webkit-transform: translate(-30px, -50px);
+
+.action-button{
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 10px;
+  font-size: 25px;
+  color: #FFF;
+  text-decoration: none;  
 }
-.arrow.left{
+.left{
   float:left;
-  transform: rotate(90deg) translate(0px, 25px);
-  -webkit-transform: rotate(90deg) translate(0px, 25px);
-  -moz-transform: rotate(90deg) translate(0px, 25px);
-  -o-transform: rotate(90deg) translate(0px, 25px);
-  -ms-transform: rotate(90deg) translate(0px, 25px);
+  background-color:white;
+  color:black;
 }
-.arrow.right{
+.right{
   float:right;
-  transform: rotate(270deg) translate(0px, 25px);
-  -webkit-transform: rotate(270deg) translate(0px, 25px);
-  -moz-transform: rotate(270deg) translate(0px, 25px);
-  -o-transform: rotate(270deg) translate(0px, 25px);
-  -ms-transform: rotate(270deg) translate(0px, 25px);
+  background-color:black;
+  color:white;
+}
+
+footer {
+  clear: both;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+footer p{
+  margin: 0;
+}
+footer a:link{
+  text-decoration: none;
+  color: blue;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+footer a:visited{
+  color: blue;
+  text-decoration: none;
+  font-weight: bolder;
 }
