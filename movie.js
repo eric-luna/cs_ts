@@ -1,16 +1,21 @@
 $(document).ready(function(){
  
   var count=0;
-  
+  var check="";
+
    $('.search').keypress(function(e) {
     if (e.keyCode == 13)
       $('.button').click();
      count=0;
   });
 
-  $('.button').on('click',function(){
-  $('.title, .poster, .overview,.navigation').empty();
+  $('.button').on('click',function(){ 
+  $('.title, .poster, .overview,.release_date,.navigation').empty();
   var search=$('.search').val();
+  check=$('.search').val();
+  if(check !== search){
+    count=0;
+  }
   var url ="http://api.themoviedb.org/3/search/movie?api_key=39124889ea92aada0703109651a543ab&query="+search;
   $.ajax(
     {
@@ -22,10 +27,17 @@ $(document).ready(function(){
      success: function(result){
         
         var title=result.results[count]['title'];
+        var release_date=result.results[count]["release_date"];
         var poster = result.results[count]['poster_path'];
         var overview=result.results[count]['overview'];
 
         $('.title').append("<h1>"+title+"</h1>");
+        if(release_date===""){
+          $('.release_date').append("<p>Release Date: N/A</p>");
+        }else{
+          $('.release_date').append("<p>Release Date: "+release_date+"</p>");
+        }
+        
         if(poster === null ){
           $('.poster').append("<img src='img/noPoster.jpg'>");
         }
@@ -34,6 +46,8 @@ $(document).ready(function(){
         }
         if(overview ===""){
            $('.overview').append("<p>No Description Available</p>");
+        }else if(overview.length > 500){
+           $('.overview').append("<p>"+overview.slice(0,500)+"...</p>");
         }else{
            $('.overview').append("<p>"+overview+"</p>");
         }
@@ -69,7 +83,7 @@ $(document).ready(function(){
         if (e.keyCode == 39)
         $('.right').click();
       }); 
-       console.log(result.results.length);
+       console.log(result.results[2]["release_date"]);
      }})
   })
 });

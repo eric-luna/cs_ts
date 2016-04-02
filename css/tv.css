@@ -1,0 +1,167 @@
+html,body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background:url('../img/tv.jpg');
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1250px;
+}
+div {
+  text-align:center;
+  margin: auto;
+}
+.search{
+  font-size: 15px;
+  border-radius: 10px;
+}
+input, button:focus{
+  outline:none;
+}
+.search-button{
+  position: relative;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  border-radius: 10px;
+  font-size: 15px;
+  text-decoration: none;  
+  background-color: black;
+  color: white;
+}
+.tv-show{
+  margin: 3% auto;
+  height: 900px;
+}
+.header{
+  text-align: center;
+  margin: auto;
+  font-size: 4em;
+  color: white;
+}
+.top{
+  margin-top: 10px;
+}
+a{
+  float: right;
+  text-decoration: none;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  padding-right: 2%;
+  clear: both;
+  color: white;
+}
+a:visited{
+  color: white;
+}
+.header{
+  clear: both;
+}
+.back{
+  background-color: rgba(255, 255, 255,0.75);
+  width: 90%;
+  border-radius: 10px;
+}
+.poster img{
+  border-radius: 5px;
+  width: 90%;
+  height: 90%;
+  
+}
+.overview{
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5%;
+  background-color: rgba(255, 255, 255,0.75);
+  width: 95%;
+  color: white;
+  border-radius: 5px;
+}
+.placeholder{
+  visibility: hidden;
+}
+.overview p {
+  padding: 15px 2.5%;
+  color: black;
+}
+.navigation{
+  width:80%;
+  margin-bottom: 3%;
+}
+.animate{
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+.action-button{
+  position: relative;
+  float: left;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
+    margin: 0px 10px 10px 0px;
+    font-size: 20px;  
+}
+.left{
+  float:left;
+  background-color:white;
+  color:black;
+}
+.right{
+  float:right;
+  background-color:black;
+  color:white;
+}
+
+footer {
+  clear: both;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  color: white;
+}
+footer p{
+  margin: 0;
+}
+footer a:link{
+  text-decoration: none;
+  color: blue;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+footer a:visited{
+  color: blue;
+  text-decoration: none;
+  font-weight: bolder;
+}
+/***********************Responsive Design*****************************/
+@media only screen and (min-width: 500px){
+  body{
+    background-size: cover;
+  }
+  .back{
+    width: 25%;
+  }
+  .tv-show{
+    height: 800px;
+  }
+  .poster img{
+    height: 500px;
+    width: 333px;
+  }
+  .overview{
+    width:85%;
+  }
+  .navigation {
+    width: 25%;
+  }
+  .action-button{
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    font-size: 25px;
+  }
+}
+
