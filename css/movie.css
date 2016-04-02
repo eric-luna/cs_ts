@@ -14,7 +14,7 @@ div {
   text-align:center;
   margin: auto;
 }
-a{
+.link{
   float: right;
   text-decoration: none;
   font-size: 1.1em;
@@ -24,7 +24,7 @@ a{
   clear: both;
   color: black;
 }
-a:visited{
+.link:visited{
   color: black;
 }
 .header{
@@ -132,7 +132,7 @@ footer a:visited{
 /***********************Responsive Design*****************************/
 @media only screen and (min-width: 500px){
   body{
-    height: 1100px;
+    height: 1150px;
     background-size: cover;
   }
   .movie{

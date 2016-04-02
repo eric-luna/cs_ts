@@ -45,7 +45,7 @@ input, button:focus{
 .top{
   margin-top: 10px;
 }
-a{
+.link{
   float: right;
   text-decoration: none;
   font-size: 1.1em;
@@ -55,7 +55,7 @@ a{
   clear: both;
   color: white;
 }
-a:visited{
+.link:visited{
   color: white;
 }
 .header{
