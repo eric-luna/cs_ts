@@ -1,3 +1,4 @@
+/*General styles*/
 html,body{
   width: 100%;
   margin: 0;
@@ -6,34 +7,22 @@ html,body{
 }
 body{
   background:url('../img/movie.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  height: 1250px;
+  height: 1350px;
 }
+/*adds some main styles to all divs*/
 div {
   text-align:center;
   margin: auto;
 }
-.link{
-  float: right;
-  text-decoration: none;
-  font-size: 1.1em;
-  margin: 0;
-  padding: 0;
-  padding-right: 2%;
-  clear: both;
-  color: black;
-}
-.link:visited{
-  color: black;
-}
-.header{
-  clear: both;
-}
+/*search input style*/
 .search{
   font-size: 15px;
   border-radius: 10px;
 }
+/*removes focus when search bar or search button is clicked*/
 input, button:focus{
   outline:none;
 }
@@ -47,31 +36,77 @@ input, button:focus{
   background-color: black;
   color: white;
 }
+/*Main movie section styles*/
 .movie{
   margin: 3% auto;
   height: 900px;
 }
+/*main header title*/
 .header{
   text-align: center;
   margin: auto;
   font-size: 4em;
+  clear: both;
+  background-color: rgba(255, 255, 255,0.50); 
+  border-radius: 10px;
 }
+/*search div style*/
 .top{
   margin-top: 10px;
 }
+/*link for the tv seeker section */
+.link{
+  float: right;
+  text-decoration: none;
+  font-size: 1.1em;
+  margin: 5px 0;
+  padding: 5px 5px;
+  margin-right: 2%;
+  clear: both;
+  color:#852330;
+  background-color: rgba(255, 255, 255,0.75); 
+  border-radius: 10px;
+}
+.link:visited{
+  color:#852330;
+}
+/*poster image*/
+.poster{
+  height: 500px;
+  clear: both;
+}
 .poster img{
   border-radius: 5px;
-  width: 90%;
-  height: 90%;
-  
+  width: 95%;
+  height: 95%;
 }
+/*trailer div section */
+.trailer{
+  margin: 5% auto;
+  width: 80%;
+}
+.trailer a {
+  text-decoration: none;
+}
+/*trailer button styles*/
+.trailer-button {
+  background-color:#852330;
+  color:#fff;
+  font-size:20px;
+  line-height:30px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  border:0;
+  text-shadow:#C17C3A 0 -1px 0;
+  margin: auto;
+} 
 .overview{
   text-align: center;
   margin: auto;
   margin-bottom: 5%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(255, 255, 255,0.50); 
   width: 95%;
-  color: white;
   border-radius: 5px;
 }
 .placeholder{
@@ -80,6 +115,7 @@ input, button:focus{
 .overview p {
   padding: 15px 2.5%;
 }
+/*div for navigation section containing buttons*/
 .navigation{
   width:80%;
   margin-bottom: 3%;
@@ -95,8 +131,8 @@ input, button:focus{
   border-radius: 10px;
   text-decoration: none;
   padding: 10px 20px;
-    margin: 0px 10px 10px 0px;
-    font-size: 20px;  
+  margin: 0px 10px 10px 0px;
+  font-size: 20px;  
 }
 .left{
   float:left;
@@ -108,7 +144,7 @@ input, button:focus{
   background-color:black;
   color:white;
 }
-
+/*footer section*/
 footer {
   clear: both;
   margin: auto;
@@ -117,6 +153,7 @@ footer {
 }
 footer p{
   margin: 0;
+  color: white;
 }
 footer a:link{
   text-decoration: none;
@@ -130,28 +167,56 @@ footer a:visited{
   font-weight: bolder;
 }
 /***********************Responsive Design*****************************/
+
 @media only screen and (min-width: 500px){
   body{
-    height: 1150px;
     background-size: cover;
   }
   .movie{
     height: 800px;
   }
+  .poster{
+    height: 500px;
+    margin-bottom: 10px;
+  }
   .poster img{
     height: 500px;
     width: 333px;
+  }
+  .trailer{
+    width: 35%;
   }
   .overview{
     width:85%;
   }
   .navigation {
-    width: 25%;
+    width: 80%;
   }
   .action-button{
     padding: 10px 40px;
     margin: 0px 10px 10px 0px;
     font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 650px){
+  .header{
+    width: 45%;
+  }
+  .trailer{
+    width: 30%;
+  }
+  .navigation{
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 900px){
+  body{
+ 
+  background-size: 100% 100%;
+}
+  .navigation{
+    width: 35%;
   }
 }
 

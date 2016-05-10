@@ -41,6 +41,7 @@ input, button:focus{
   margin: auto;
   font-size: 4em;
   color: white;
+  clear: both;
 }
 .top{
   margin-top: 10px;
@@ -58,20 +59,19 @@ input, button:focus{
 .link:visited{
   color: white;
 }
-.header{
-  clear: both;
-}
-.back{
+.background{
   background-color: rgba(255, 255, 255,0.75);
   width: 90%;
   border-radius: 10px;
 }
+/*style for the poster image*/
 .poster img{
   border-radius: 5px;
   width: 90%;
   height: 90%;
   
 }
+/*style for the show summary*/
 .overview{
   text-align: center;
   margin: auto;
@@ -88,10 +88,12 @@ input, button:focus{
   padding: 15px 2.5%;
   color: black;
 }
+/*navigation div*/
 .navigation{
   width:80%;
   margin-bottom: 3%;
 }
+/*button styles*/
 .animate{
   transition: all 0.1s;
   -webkit-transition: all 0.1s;
