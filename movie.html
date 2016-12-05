@@ -2,30 +2,31 @@
 	<html>
 	<head>
 		<title>Cinema Seeker</title>
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/movie.css">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<meta name="viewport" content= "initial-scale=1">
 	</head>
 	<body>
 		<!-- Link to the tv seeker page -->
-		<a href="tv.html" class="link">TV Seeker</a>
-		<br>
+		<a href="tv.html" class="link">Switch to TV Seeker</a>
 		<!-- main header title -->
 		<h1 class="header">Cinema Seeker</h1>
 		<!-- search button div -->
-		<div class="top">
-			<input class="search" type="search"></input>
-			<button class='button search-button animate'>Search Movies</button>
+		<div class="search-bar">
+		<input class="search" type="search" name="search" placeholder="Enter a Movie..."><button class="button"><img src="img/search.png"></button></input>
 		</div>
 		<!-- this is where the movie info is placed when receive from api -->
 		<div class="movie">
-			<div class="title" id="#"></div>
-			<div class="release_date"></div>
-			<div class="poster"></div>
-			<div class="trailer"></div>
-			<div class="overview"></div>
-			<div class="navigation"></div>
+			<div class="poster">
+			</div>
+			<div class="movie-info">
+				<div class="title" id="#"></div>
+				<div class="release_date"></div>
+				<div class="overview"></div>
+				<div class="trailer"></div>
+				<div class="navigation"></div>
+			</div>
 		</div>
 		<footer>
 			<p>Coded & Designed by <a href="http://ericandrewluna.com" target="_blank">Eric Luna</a></p>

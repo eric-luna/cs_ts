@@ -11,7 +11,7 @@ $(document).ready(function(){
   // main function executed on button click
   $('.button').on('click',function(){ 
   // empties the tv info section for new results
-  $('.name, .poster, .overview,.first_air_date,.navigation').empty();
+  $('.title, .poster, .overview,.first_air_date,.navigation,.trailer').empty();
   // saves the search bar value to send with the api request
   var search=$('.search').val();
   check=$('.search').val();
@@ -28,13 +28,41 @@ $(document).ready(function(){
      contentType: 'application/json',
      dataType: 'jsonp',
      success: function(result){
+        var id = result.results[count]["id"];
+        var url2 = "http://api.themoviedb.org/3/tv/" + id + "/videos?api_key=39124889ea92aada0703109651a543ab";
+        // second ajax request for additional movie info whcih needs the id from the first aja request
+        $.ajax({
+          url: url2,
+          type: 'GET',
+          jsonpCallback: 'testing',
+          contentType: 'application/json',
+          dataType: 'jsonp',
+          success: function(result) {
+            console.log(result);
+            var key = "";
+            for(var i=0;i<result.results.length;i++){
+              if(result.results[i]["type"]==="Trailer"){
+                key=result.results[i]["key"];
+              }
+            }
+            console.log(key);
+            if(key!==""){
+              var trailer = "https://www.youtube.com/watch?v=" + key;
+              $(".trailer").append("<a href='" + trailer + "' target='_blank'><p class='trailer-button'>Click For Trailer</p></a>");
+            }
+            
+            console.log(trailer);
+            
+            console.log(key);
+          }
+        })
         // tv show results information
-        var name=result.results[count]['name'];
+        var title=result.results[count]['name'];
         var first_air_date=result.results[count]["first_air_date"];
         var poster = result.results[count]['poster_path'];
         var overview=result.results[count]['overview'];
         // adds title to name section
-        $('.name').append("<h1>"+name+"</h1>");
+        $('.title').append("<h1>"+title+"</h1>");
         // checks to see if first air date info is available
         if(first_air_date===""){
           $('.first_air_date').append("<p>First Air Date: N/A</p>");
@@ -92,7 +120,8 @@ $(document).ready(function(){
        $(document).keydown(function(e) {
         if (e.keyCode == 39)
         $('.right').click();
-      }); 
+      });
+      $('.tv-info').css('display','block'); 
      }})
   })
 });

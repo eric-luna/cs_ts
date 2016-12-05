@@ -1,3 +1,4 @@
+/*General styles*/
 html,body{
   width: 100%;
   margin: 0;
@@ -6,164 +7,257 @@ html,body{
 }
 body{
   background:url('../img/tv.jpg');
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 1250px;
+  display: flex;
+  flex-direction: column;
+  height: 1280px;
 }
+/*adds some main styles to all divs*/
 div {
   text-align:center;
   margin: auto;
 }
-.search{
-  font-size: 15px;
-  border-radius: 10px;
-}
-input, button:focus{
-  outline:none;
-}
-.search-button{
-  position: relative;
-  padding: 5px 5px;
-  margin: 5px 5px;
-  border-radius: 10px;
-  font-size: 15px;
-  text-decoration: none;  
-  background-color: black;
-  color: white;
-}
-.tv-show{
-  margin: 3% auto;
-  height: 900px;
-}
-.header{
-  text-align: center;
-  margin: auto;
-  font-size: 4em;
-  color: white;
-  clear: both;
-}
-.top{
-  margin-top: 10px;
-}
+/*link for the tv seeker section */
 .link{
   float: right;
   text-decoration: none;
-  font-size: 1.1em;
-  margin: 0;
-  padding: 0;
-  padding-right: 2%;
-  clear: both;
-  color: white;
+  font-size: .85em;
+  height: 20px;
+  font-weight: bold;
+  text-align: center;
+  border:5px solid #fff;
+  color: #fff;
+  background-color: black; 
+  border-radius: 5px;
+  width: 215px;
+  padding: 5px 2px;
+  margin: 3px 3px;
+  transition-property: font-size;
+  transition-duration: .25s;
+  transition-timing-function: linear;
 }
 .link:visited{
+   color: #fff;
+}
+.link:hover{
+  font-size: 1em;
+}
+/*main header title*/
+.header{
+  text-align: center;
+  margin: 25px auto;
+  border:3px solid white;
+  display: inline-block;
+  font-size: 3em;
   color: white;
-}
-.background{
-  background-color: rgba(255, 255, 255,0.75);
-  width: 90%;
+  background-color: rgba(0, 0, 0,0.80); 
   border-radius: 10px;
+  width: 90%;
 }
-/*style for the poster image*/
+/*search div style*/
+.top{
+  margin-top: 10px;
+  margin: 0;
+}
+/*Search Bar Styles*/
+.search-bar{
+  margin: 0 auto;
+  /*height: 40px;*/
+  display: flex;
+  width: 75%;
+  flex-direction: row;
+}
+input{
+  height: 40px;
+  width: 95%;
+  padding: 5px;
+  font-size: 1.15em;
+  font-weight: bold;
+  background: #fff; 
+  border:solid 1px #d9d9d9; 
+  border-top:solid 2px #c0c0c0; 
+  border-bottom:solid 2px #c0c0c0; 
+  border-right:none;
+}
+input:focus{
+  outline: none;
+}
+.button {
+  background: #fff;
+  width: 45px;
+  height: 54px;
+  border-top:solid 2px #c0c0c0;
+  border-right:solid 1px #d9d9d9;
+  border-bottom:solid 2px #c0c0c0;
+  border-left: none;
+  padding: 5px;
+}
+.button img{
+  width: 35px;
+  height: 35px;
+  margin: 0 auto;
+}
+.button:focus{
+  outline: none;
+}
+/*Main movie section styles*/
+.tv-show{
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.poster{
+  margin:auto;
+}
 .poster img{
   border-radius: 5px;
-  width: 90%;
-  height: 90%;
-  
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border:5px solid white;
 }
-/*style for the show summary*/
+.tv-info{
+  width: 95%;
+  background-color: rgba(255, 255, 255,.85);
+  margin: auto;
+  color: black;
+  border:5px solid white;
+  display: none;
+}
+.title h1{
+  margin: 0;
+}
 .overview{
   text-align: center;
   margin: auto;
-  margin-bottom: 5%;
-  background-color: rgba(255, 255, 255,0.75);
-  width: 95%;
-  color: white;
   border-radius: 5px;
+  width: 98%;
+  font-size: 0.9em;
 }
 .placeholder{
   visibility: hidden;
 }
 .overview p {
-  padding: 15px 2.5%;
-  color: black;
+  font-size: 0.95em;
 }
-/*navigation div*/
+/*trailer div section */
+.trailer{
+  margin: 5% auto;
+  width: 90%;
+}
+.trailer a {
+  text-decoration: none;
+}
+/*trailer button styles*/
+.trailer-button {
+  background-color:black;
+  color:#fff;
+  width: 75%;
+  font-size:20px;
+  line-height:30px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  border:0;
+  text-shadow:#C17C3A 0 -1px 0;
+  margin: auto;
+} 
+/*div for navigation section containing buttons*/
 .navigation{
   width:80%;
   margin-bottom: 3%;
 }
-/*button styles*/
 .animate{
   transition: all 0.1s;
   -webkit-transition: all 0.1s;
 }
+
 .action-button{
   position: relative;
   float: left;
   border-radius: 10px;
   text-decoration: none;
   padding: 10px 20px;
-    margin: 0px 10px 10px 0px;
-    font-size: 20px;  
+  margin: 0px 10px 10px 0px;
+  font-size: 20px;  
 }
 .left{
   float:left;
   background-color:white;
-  color:black;
+  color: black;
 }
 .right{
   float:right;
   background-color:black;
   color:white;
 }
-
+/*Footer section*/
 footer {
   clear: both;
   margin: auto;
   margin-top: 5%;
   text-align: center;
-  color: white;
 }
 footer p{
   margin: 0;
+  color: #000;
+  font-size: 1em;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 3px;
 }
 footer a:link{
   text-decoration: none;
-  color: blue;
-  font-size: 1.3em;
+  color: #000;
+  font-size: 1.5em;
   font-weight: bolder;
 }
 footer a:visited{
-  color: blue;
+  color: #e8ae6e;
   text-decoration: none;
   font-weight: bolder;
 }
+
 /***********************Responsive Design*****************************/
-@media only screen and (min-width: 500px){
+
+@media only screen and (min-width: 900px){
   body{
-    background-size: cover;
+    background-size: 100% 100%;
+    height: 1020px;
   }
-  .background{
-    width: 25%;
+  .header{
+    width: 40%;
+    font-size: 4em;
   }
   .tv-show{
-    height: 800px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 75px;
+    width: 98%;
+  }
+  .poster{
+    margin:auto;
+    width: 40%;
   }
   .poster img{
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    width: 70%;
+  }
+  .tv-info{
+    width: 60%;
+    margin: 0;
     height: 500px;
-    width: 333px;
   }
-  .overview{
-    width:85%;
+  .overview p{
+    padding: 0 15px;
   }
-  .navigation {
-    width: 25%;
-  }
-  .action-button{
-    padding: 10px 40px;
-    margin: 0px 10px 10px 0px;
-    font-size: 25px;
+  .navigation{
+    width: 55%;
   }
 }
 

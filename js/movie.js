@@ -10,7 +10,7 @@ $(document).ready(function() {
   });
   // when the button is pressed the main function of the site will be executed
   $('.button').on('click', function() {
-    // emptyies the mina movie divs from last search to makee room for new
+    // empties the mina movie divs from last search to makee room for new
     $('.title, .poster, .overview,.release_date,.navigation,.trailer').empty();
     // gets the value from search input bar
     var search = $('.search').val();
@@ -120,7 +120,9 @@ $(document).ready(function() {
           if (e.keyCode == 39)
             $('.right').click();
         });
-
+        // Displays movie-info section
+        $('.poster').css('display','block');
+        $('.movie-info').css('display','block');
       }
     })
   })

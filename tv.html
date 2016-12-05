@@ -9,25 +9,26 @@
 	</head>
 		<body>
 			<!-- link to cinema seeker -->
-		<a href="movie.html" class="link">Cinema Seeker</a>
+		<a href="movie.html" class="link">Switch to Cinema Seeker</a>
 		<!-- header title  -->
 		<h1 class="header">TV Seeker</h1>
-		<!-- search bar section  -->
-		<div class="top">
-			<input class="search" type="search"></input>
-			<button class='button search-button animate'>Search TV Shows</button>
+		<!-- search button div -->
+		<div class="search-bar">
+		<input class="search" type="search" name="search" placeholder="Enter a TV Show..."><button class="button"><img src="img/search.png"></button></input>
 		</div>
-		<!-- main content of the tv results -->
+		<!-- this is where the movie info is placed when receive from api -->
 		<div class="tv-show">
-			<!-- background color for name and release date -->
-			<div class="background">
-				<div class="name"></div>
-				<div class="first_air_date"></div>
+			<div class="poster">
+				
 			</div>
-			<div class="poster"></div>
-			<div class="overview"></div>
-			<div class="navigation"></div> 
-		</div>   
+			<div class="tv-info">
+				<div class="title" id="#"></div>
+				<div class="first_air_date"></div>
+				<div class="overview"></div>
+				<div class="trailer"></div>
+				<div class="navigation"></div>
+			</div>
+		</div>
 		<footer>
 			<p>Coded & Designed by <a href="http://ericandrewluna.com" target="_blank">Eric Luna</a></p>
 		</footer>
