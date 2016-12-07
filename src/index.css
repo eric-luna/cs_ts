@@ -6,7 +6,7 @@ html,body{
   font-family: 'Open Sans', sans-serif;
 }
 body{
-  background:url('../img/movie.jpg');
+  background:url('./img/movie.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,42 +14,50 @@ body{
   flex-direction: column;
   height: 1280px;
 }
-/*adds some main styles to all divs*/
-div {
+.hide{
+	display: none;
+}
+
+.search-bar,.movie,.navigation {
   text-align:center;
   margin: auto;
 }
+
 /*link for the tv seeker section */
-.link{
-  float: right;
-  text-decoration: none;
-  font-size: .85em;
-  height: 20px;
-  font-weight: bold;
-  text-align: center;
-  border:5px solid #e8ae6e;
-  color: #e2695e;
-  background-color: rgba(255, 255, 255,1); 
-  border-radius: 5px;
-  width: 215px;
-  padding: 5px 2px;
+.nav-bar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  background-color: #e2695e; }
+
+.nav-bar a {
+  list-style: none;
+  flex-grow: 1;
+  font-size: 1.5em;
+  padding-top: 10px;
+  background-color: #e2695e;
   margin: 3px 3px;
-  transition-property: font-size;
-  transition-duration: .25s;
-  transition-timing-function: linear;
-}
-.link:visited{
-   color: #e2695e;
-}
-.link:hover{
-  font-size: 1em;
-}
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition-property: font-size, color;
+  transition-duration: 0.50s;
+  transition-timing-function: linear; }
+
+.nav-bar a:hover {
+  color: #e8ae6e; }
+
+.selected {
+  border-bottom: 5px solid #334431; }
 /*main header title*/
 .header{
   text-align: center;
   margin: 25px auto;
   border:3px solid white;
-  display: inline-block;
   font-size: 3em;
   color: white;
   background-color: rgba(49, 86, 104,0.85);
@@ -80,19 +88,16 @@ input:focus{
   outline: none;
 }
 .button {
-  background: #fff;
-  width: 45px;
+  background:#e2695e;
+  cursor: pointer;
+  width: 55px;
   height: 54px;
+  color: white;
   border-top:solid 2px #c0c0c0;
   border-right:solid 1px #d9d9d9;
   border-bottom:solid 2px #c0c0c0;
   border-left: none;
   padding: 5px;
-}
-.button img{
-  width: 35px;
-  height: 35px;
-  margin: 0 auto;
 }
 .button:focus{
   outline: none;
@@ -106,7 +111,7 @@ input:focus{
 }
 .poster{
   margin:auto;
-  display: none;
+  /*display: none;*/
 }
 .poster img{
   border-radius: 5px;
@@ -120,7 +125,6 @@ input:focus{
   margin: auto;
   color: white;
   border:5px solid white;
-  display: none;
 }
 .title h1{
   margin:0;
@@ -133,7 +137,7 @@ input:focus{
   font-size: 0.9em;
 }
 .placeholder{
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 .overview p {
   font-size: 0.95em;
@@ -195,6 +199,7 @@ footer {
   margin: auto;
   margin-top: 5%;
   text-align: center;
+  width: 70%;
 }
 footer p{
   margin: 0;
@@ -252,5 +257,8 @@ footer a:visited{
   }
   .navigation{
     width: 55%;
+  }
+  footer{
+  	width: 40%;
   }
 }
