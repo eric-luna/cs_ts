@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Footer from './footer';
 import Nav from './nav';
 import './main.css';
-import './movie.css';
+import './tv.css';
 
-class Movie extends Component {
+class TV extends Component {
   constructor(props) {
       super(props);
       this.state = { 
@@ -12,7 +12,7 @@ class Movie extends Component {
         count:0,
         poster:"",
         title:"",
-        release_date:"",
+        air_date:"",
         overview:"",
         id:"",
         trailer:"",
@@ -31,75 +31,77 @@ class Movie extends Component {
   }
 
   request(){
-    let movie = this;
+    let tv = this;
     let search = document.getElementById('search').value;
     let xmlhttp = new XMLHttpRequest();
-    let url = "http://api.themoviedb.org/3/search/movie?api_key=39124889ea92aada0703109651a543ab&query="+search;
+    let url = "http://api.themoviedb.org/3/search/tv?api_key=39124889ea92aada0703109651a543ab&query="+search;
 
     xmlhttp.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
-        movie.setState({count:0});
+        tv.setState({count:0});
         let myArr = JSON.parse(this.responseText);
-        let poster_path=myArr.results[movie.state.count]['poster_path'];
+        let poster_path=myArr.results[tv.state.count]['poster_path'];
         let poster = '';
-        let title = myArr.results[movie.state.count]['title'];
-        let overview = myArr.results[movie.state.count]['overview'];
-        let release_date = myArr.results[movie.state.count]['release_date'];
+        let title = myArr.results[tv.state.count]['name'];
+        let overview = myArr.results[tv.state.count]['overview'];
+        let air_date = myArr.results[tv.state.count]['first_air_date'];
+        console.log(air_date);
 
         if(poster_path === null ){
           poster=require('./img/noPoster.jpg');
         }else{
           poster = 'http://image.tmdb.org/t/p/w500/'+poster_path;
         }
-        movie.setState({arr:myArr});
-        movie.setState({amount:myArr.results.length});
-        movie.setState({poster:poster});
-        movie.setState({title:title});
 
-        if(release_date === ""){
-          movie.setState({release_date:"N/A"});
+        tv.setState({arr:myArr});
+        tv.setState({amount:myArr.results.length});
+        tv.setState({poster:poster});
+        tv.setState({title:title});
+        
+        if(air_date === ""){
+          tv.setState({air_date:"N/A"});
         }else{
-          movie.setState({release_date:release_date});
+          tv.setState({air_date:air_date});
         }
 
         if (overview === "") {
-          this.setState({overview:"No Description Available"});
+          tv.setState({overview:"No Description Available"});
         }
         // if overview is over 500 characters cut it short 
         else if (overview.length > 700) {
           let shorter = overview.slice(0,700)+"...";
-          movie.setState({overview:shorter});
+          tv.setState({overview:shorter});
         }
-        // add summary to page
+        // add overview to page
         else {
-          movie.setState({overview:overview});
+          tv.setState({overview:myArr.results[tv.state.count]['overview']});
         }
-
-        if(movie.state.toggleContainer==='hide'){
-          movie.toggleContainer();
+        
+        if(tv.state.toggleContainer==='hide'){
+          tv.toggleContainer();
         }
-        movie.toggleButton();
+        tv.toggleButton();
 
         // Second Call
         let id = myArr.results[0]["id"];
-        let url2 = "http://api.themoviedb.org/3/movie/" + id + "/videos?api_key=39124889ea92aada0703109651a543ab";
+        let url2 = "http://api.themoviedb.org/3/tv/" + id + "/videos?api_key=39124889ea92aada0703109651a543ab";
         xmlhttp.onreadystatechange = function() {
           if (this.readyState === 4 && this.status === 200) {
         
             let myArr2 = JSON.parse(this.responseText);
 
             if(Object.keys(myArr2.results).length === 0){
-              if(movie.state.toggleTrailer === 'trailer'){
-                movie.toggleTrailer();
+              if(tv.state.toggleTrailer === 'trailer'){
+                tv.toggleTrailer();
               }
             }else{
-              if(movie.state.toggleTrailer === 'hide'){
-                movie.toggleTrailer();
+              if(tv.state.toggleTrailer === 'hide'){
+                tv.toggleTrailer();
               }
 
               let key = myArr2.results[0]["key"];
               let trailer = "https://www.youtube.com/watch?v=" + key;
-              movie.setState({trailer:trailer});  
+              tv.setState({trailer:trailer});  
           
             }
           }
@@ -121,7 +123,7 @@ class Movie extends Component {
     if(this.state.count === 0){
       this.setState({toggleButton:'hide'});
     }else{
-      this.setState({toggleButton:'left-movie action-button animate'});
+      this.setState({toggleButton:'left-tv action-button animate'});
     }
   }
 
@@ -153,63 +155,64 @@ class Movie extends Component {
       let count=this.state.count;
       let poster="";
       let poster_path=arr.results[this.state.count]['poster_path'];
-      let title = arr.results[this.state.count]['title'];
+      let title = arr.results[this.state.count]['name'];
       let overview = arr.results[this.state.count]['overview'];
-      let release_date = arr.results[this.state.count]['release_date'];
-      let id = arr.results[this.state.count]['id'];
+      let air_date = arr.results[this.state.count]['first_air_date']; 
+      console.log(air_date);
 
       if(poster_path === null ){
         poster=require('./img/noPoster.jpg');
       }else{
         poster = 'http://image.tmdb.org/t/p/w500/'+poster_path;
       }
+
       this.setState({poster:poster});
       this.setState({title:title});
 
-      if(release_date === ""){
-        this.setState({release_date:"N/A"});
+      if(air_date == ""){
+        this.setState({air_date:"N/A"});
       }else{
-        this.setState({release_date:release_date});
+        this.setState({air_date:arr.results[this.state.count]['first_air_date']});
       }
-  
+      
 
       if (overview === "") {
         this.setState({overview:"No Description Available"});
       }
-        // if overview is over 500 characters cut it short 
-      else if (overview.length > 500) {
-        let shorter = overview.slice(0,500)+"...";
+      // if overview is over 500 characters cut it short 
+      else if (overview.length > 700) {
+        let shorter = overview.slice(0,700)+"...";
         this.setState({overview:shorter});
       }
-         // add summary to page
+      // add summary to page
       else {
-        this.setState({overview:overview});
+        this.setState({overview:arr.results[this.state.count]['overview']});
       }
-      // this.setState({overview:arr.results[this.state.count]['overview']});
-      this.setState({id:id},this.trailer);
+
+      this.setState({id:arr.results[this.state.count]['id']},this.trailer);
   }
 
   trailer(){
     // Second Call
-    let movie=this;
+    let tv = this;
     let xmlhttp = new XMLHttpRequest();
     let id = this.state.id;
-    let url2 = "http://api.themoviedb.org/3/movie/" + id + "/videos?api_key=39124889ea92aada0703109651a543ab";
+    let url2 = "http://api.themoviedb.org/3/tv/" + id + "/videos?api_key=39124889ea92aada0703109651a543ab";
     xmlhttp.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         let myArr2 = JSON.parse(this.responseText);
 
         if(Object.keys(myArr2.results).length === 0){
-          if(movie.state.toggleTrailer === 'trailer'){
-            movie.toggleTrailer();
+          if(tv.state.toggleTrailer === 'trailer'){
+            tv.toggleTrailer();
           }
         }else{
-          if(movie.state.toggleTrailer === 'hide'){
-            movie.toggleTrailer();
+          if(tv.state.toggleTrailer === 'hide'){
+            tv.toggleTrailer();
           }
           let key = myArr2.results[0]["key"];
           let trailer = "https://www.youtube.com/watch?v=" + key;
-          movie.setState({trailer:trailer}); 
+          tv.setState({trailer:trailer}); 
         }
       }
     }
@@ -238,34 +241,34 @@ class Movie extends Component {
 
   render() {
     return (
-      <section className="movie">
-        <Nav class="nav-bar-movie" version="TV Seeker" link="/TV"/>
-        <h1 className="header-movie">Cinema Seeker</h1>
+      <section className="tv">
+        <Nav class="nav-bar-tv" version="Cinema Seeker" link="/"/>
+        <h1 className="header-tv">TV Seeker</h1>
         <div className="search-bar">
-           <input id='search' onClick={this.enter} placeholder="Enter a Movie..."/>
-           <button onClick={this.request} className="button-search-movie">Search</button>
+           <input id='search' onClick={this.enter} placeholder="Enter a TV Show..."/>
+           <button onClick={this.request} className="button-search-tv">Search</button>
         </div>
         <div className={this.state.toggleContainer}>
           <div className="poster">
             <img src={this.state.poster} alt="movie poster"/>
           </div>
-          <div className="movie-info">
+          <div className="tv-info">
             <div className="title"><h1>{this.state.title}</h1></div>
-            <div className="release_date"><p><b>Release Date:</b> {this.state.release_date}</p></div>
+            <div className="release_date"><p><b>Release Date:</b> {this.state.air_date}</p></div>
             <div className="overview"><p>{this.state.overview}</p></div>
             <div className={this.state.toggleTrailer}>
-              <a href={this.state.trailer} target="_blank"><p className='trailer-button-movie'>View Trailer</p></a>
+              <a href={this.state.trailer}><p className='trailer-button-tv'>View Trailer</p></a>
             </div>
             <div className="navigation">
               <button className={this.state.toggleButton} onClick={this.handleClickLast}>Prev</button>
-              <button className='right-movie action-button animate' id='right' onClick={this.handleClickNext}>Next</button>
+              <button className='right-tv action-button animate' id='right' onClick={this.handleClickNext}>Next</button>
             </div>
           </div>
         </div>
-        <Footer class="footer-movie"/>
+        <Footer class="footer-tv"/>
       </section>
     );
   }
 }
 
-export default Movie;
+export default TV;

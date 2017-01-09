@@ -1,0 +1,107 @@
+.movie {
+    background: url('./img/movie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    height: 1280px;
+}
+
+
+/*link for the tv seeker section */
+.nav-bar-movie {
+    background-color: rgba(0,0,0,0);
+}
+
+.nav-bar-movie a {
+    color: white;
+}
+
+.nav-bar-movie a:hover {
+    text-decoration: underline;
+}
+
+/*main header title*/
+.header-movie {
+    background-color: rgba(49, 86, 104, 0);
+}
+
+.button-search-movie {
+    background:rgba(0,0,0,0.5);
+    color: white;
+    border-top: solid 2px #c0c0c0;
+    border-right: solid 1px #d9d9d9;
+    border-bottom: solid 2px #c0c0c0;
+    border-left: none;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    font-family: 'Fauna One', serif;
+}
+
+.button-search-movie:focus {
+    outline: none;
+}
+/*Main movie section styles*/
+.movie-info{
+  background-color:rgba(0,0,0,0.60);
+  color: white;
+  width: 95%;
+  margin: auto;
+}
+
+/*trailer button styles*/
+
+.trailer-button-movie {
+    background-color:#fff;
+    color: #000;
+    width: 200px;
+    font-size:1.3em;
+    line-height: 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border: 0;
+    text-shadow: #C17C3A 0 -1px 0;
+    margin: auto;
+}
+
+.left-movie {
+    float:left;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+}
+
+.right-movie {
+    float:right;
+    cursor: pointer;
+    background-color: #000;
+    color:#fff;
+}
+
+.footer-movie{
+    background-color:rgba(250,250,250,0);
+    color: white;
+}
+.footer-movie a:link{
+    background: black;
+    border-radius: 5px;
+    padding: 10px;
+    color:#fff;
+}
+.footer-movie a:visited{
+    color: #fff;
+}
+
+@media only screen and (min-width: 850px){
+    .movie-info{
+       width: 70%;
+       margin: 0;
+    }
+    .movie-info h1{
+        width: 80%;
+    }
+}

@@ -3,74 +3,58 @@ html,body{
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
-body{
-  background:url('./img/movie.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  height: 1280px;
-}
+
 .hide{
 	display: none;
 }
 
-.search-bar,.movie,.navigation {
+.search-bar,.container,.navigation {
   text-align:center;
   margin: auto;
 }
 
 /*link for the tv seeker section */
-.nav-bar {
+nav {
   width: 100%;
-  height: 50px;
+  height: 45px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
-  background-color: #e2695e; }
+  justify-content: flex-start;}
 
-.nav-bar a {
+nav a {
   list-style: none;
-  flex-grow: 1;
   font-size: 1.5em;
-  padding-top: 10px;
-  background-color: #e2695e;
-  margin: 3px 3px;
-  color: white;
+  margin: 3px 10px;
   cursor: pointer;
   text-decoration: none;
   transition-property: font-size, color;
   transition-duration: 0.50s;
   transition-timing-function: linear; }
 
-.nav-bar a:hover {
-  color: #e8ae6e; }
-
-.selected {
-  border-bottom: 5px solid #334431; }
 /*main header title*/
-.header{
+section > h1{
   text-align: center;
   margin: 25px auto;
-  border:3px solid white;
+  padding: 10px 10px;
   font-size: 3em;
   color: white;
-  background-color: rgba(49, 86, 104,0.85);
   border-radius: 10px;
 }
-
 /*Search Bar Styles*/
 .search-bar{
   margin: 0 auto;
-  /*height: 40px;*/
   display: flex;
   width: 75%;
   flex-direction: row;
+}
+#search{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 25px;
 }
 input{
   height: 40px;
@@ -88,7 +72,6 @@ input:focus{
   outline: none;
 }
 .button {
-  background:#e2695e;
   cursor: pointer;
   width: 55px;
   height: 54px;
@@ -103,7 +86,7 @@ input:focus{
   outline: none;
 }
 /*Main movie section styles*/
-.movie{
+.container{
   margin: 50px auto;
   display: flex;
   flex-direction: column;
@@ -111,50 +94,52 @@ input:focus{
 }
 .poster{
   margin:auto;
-  /*display: none;*/
 }
 .poster img{
   border-radius: 5px;
   width: 50%;
-  margin: auto;
+  margin:45px auto;
   text-align: center;
 }
-.movie-info{
+.content-info{
   width: 95%;
-  background-color: rgba(49, 86, 104,0.85);
   margin: auto;
   color: white;
   border:5px solid white;
 }
 .title h1{
-  margin:0;
+  margin:30px auto;
+  text-decoration: underline;
+  font-weight: bold;
 }
+
 .overview{
   text-align: center;
   margin: auto;
   border-radius: 5px;
   width: 98%;
+  font-family: 'Fauna One', serif;
   font-size: 0.9em;
-}
-.placeholder{
-  /*visibility: hidden;*/
 }
 .overview p {
   font-size: 0.95em;
+  text-align: center;
+  margin: auto;
+  width: 95%;
+  margin-bottom: 30px;
 }
 /*trailer div section */
 .trailer{
   margin: 5% auto;
-  width: 60%;
+  width: 70%;
 }
 .trailer a {
   text-decoration: none;
 }
 /*trailer button styles*/
 .trailer-button {
-  background-color:blue;
-  background-color: rgb(113, 186, 169);
   color:#fff;
+  width: 100px;
   font-size:20px;
   line-height:30px;
   border-radius:20px;
@@ -166,14 +151,14 @@ input:focus{
 } 
 /*div for navigation section containing buttons*/
 .navigation{
-  width:80%;
+  width:200px;
   margin-bottom: 3%;
+  margin: auto;
 }
 .animate{
   transition: all 0.1s;
   -webkit-transition: all 0.1s;
 }
-
 .action-button{
   position: relative;
   float: left;
@@ -183,55 +168,46 @@ input:focus{
   margin: 0px 10px 10px 0px;
   font-size: 20px;  
 }
-.left{
-  float:left;
-  background-color:white;
-  color: #e2695e;
-}
-.right{
-  float:right;
-  background-color:#e2695e;
-  color:white;
-}
 /*footer section*/
 footer {
   clear: both;
   margin: auto;
   margin-top: 5%;
   text-align: center;
-  width: 70%;
+  width: 100%;
+  border-radius: 5px;
 }
 footer p{
   margin: 0;
-  color: white;
-  font-size: 1em;
-  background-color: #e2695e;
+  font-size: .9em;
   border-radius: 3px;
   padding: 3px;
+  font-weight: bold;
 }
 footer a:link{
   text-decoration: none;
-  color: #e8ae6e;
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: bolder;
 }
 footer a:visited{
-  color: #e8ae6e;
   text-decoration: none;
-  font-weight: bolder;
+  font-weight: bold;
 }
 /***********************Responsive Design*****************************/
 
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: 850px){
   body{
     background-size: 100% 100%;
     height: 1020px;
   }
-  .header{
-    width: 45%;
-    font-size: 4em;
+  section > h1{
+    width: 40%;
+    font-size: 3em;
   }
-  .movie{
+  .search-bar{
+    width: 50%;
+  }
+  .container{
     display: flex;
     flex-direction: row;
     margin-top: 75px;
@@ -247,18 +223,21 @@ footer a:visited{
     text-align: center;
     width: 70%;
   }
-  .movie-info{
-    width: 60%;
-    margin: 0;
-    height: 500px;
+  .title h1{
+    font-size: 3em;
   }
   .overview p{
     padding: 0 15px;
+    width: 65%;
+    line-height: 1.5;
+  }
+  .trailer{
+    width: 40%;
   }
   .navigation{
-    width: 55%;
+    width: 40%;
   }
   footer{
-  	width: 40%;
+  	width: 45%;
   }
 }

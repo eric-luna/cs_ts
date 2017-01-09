@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
     	<div>
-      	<footer>
+      	<footer className={this.props.class}>
 			<p>Coded & Designed by <a href="http://ericandrewluna.com" target="_blank">Eric Luna</a></p>
 		</footer>
 		</div>
