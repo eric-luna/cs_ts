@@ -193,6 +193,10 @@ footer a:visited{
   text-decoration: none;
   font-weight: bold;
 }
+.tmdb{
+  margin-top: 20px;
+  width: 100px;
+}
 /***********************Responsive Design*****************************/
 
 @media only screen and (min-width: 850px){
@@ -239,5 +243,8 @@ footer a:visited{
   }
   footer{
   	width: 45%;
+  }
+  .tmdb{
+    width: 30%;
   }
 }
